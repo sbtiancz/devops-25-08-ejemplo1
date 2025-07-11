@@ -1,10 +1,11 @@
 // Componente principal de registro - Bohío
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
   standalone: true,
-  imports: [],
+  imports: [RouterOutlet],
   templateUrl: './registration.html',
   styleUrl: './registration.scss'
 })

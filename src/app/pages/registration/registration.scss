@@ -1,0 +1,19 @@
+// Estilos para el contenedor de registro - Bohío
+.registration-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+  
+  // Responsive design
+  @media (max-width: 768px) {
+    padding: 0;
+  }
+  
+  @media (min-width: 769px) {
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+}
