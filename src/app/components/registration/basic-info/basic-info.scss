@@ -1,0 +1,230 @@
+// Estilos para el formulario de datos básicos - Bohío
+.basic-info-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--color-borgona) 0%, var(--color-morado) 100%);
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-lg) 0;
+  
+  @media (max-width: 767px) {
+    padding: var(--spacing-md) 0;
+    align-items: flex-start;
+  }
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  
+  .form-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-text-white);
+    margin-bottom: var(--spacing-md);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    
+    @media (max-width: 767px) {
+      font-size: 2rem;
+    }
+  }
+  
+  .form-description {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    margin-bottom: 0;
+    line-height: 1.6;
+    
+    @media (max-width: 767px) {
+      font-size: 1rem;
+    }
+  }
+}
+
+.registration-form {
+  background: var(--color-bg-primary);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-2xl);
+  
+  @media (max-width: 767px) {
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+  }
+  
+  // Espaciado entre campos del formulario
+  app-input {
+    display: block;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  app-banner {
+    display: block;
+    margin-bottom: var(--spacing-lg);
+  }
+}
+
+.development-tools {
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: var(--color-bg-secondary);
+  border-radius: var(--border-radius-md);
+  border-left: 4px solid var(--color-warning);
+  
+  @media (min-width: 768px) {
+    display: none; // Ocultar en desktop si se quiere
+  }
+}
+
+.form-actions {
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-xl);
+  
+  app-button {
+    display: block;
+    margin-bottom: var(--spacing-md);
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.form-footer {
+  border-top: 1px solid var(--color-bg-secondary);
+  padding-top: var(--spacing-lg);
+  text-align: center;
+  
+  .privacy-notice {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .assisted-mode-link {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    line-height: 1.5;
+    margin-bottom: 0;
+    
+    .link-primary {
+      color: var(--color-borgona);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition-normal);
+      
+      &:hover {
+        color: var(--color-malva);
+        text-decoration: underline;
+      }
+      
+      &:focus-visible {
+        outline: 2px solid var(--color-azul-cielo);
+        outline-offset: 2px;
+        border-radius: 2px;
+      }
+    }
+  }
+}
+
+// Animaciones para mejor experiencia de usuario
+@media (prefers-reduced-motion: no-preference) {
+  .basic-info-container {
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  .registration-form {
+    animation: slideUp 0.6s ease-out 0.2s both;
+  }
+  
+  app-input {
+    animation: fadeInUp 0.4s ease-out calc(var(--index, 0) * 0.1s + 0.4s) both;
+  }
+  
+  .form-actions {
+    animation: fadeInUp 0.4s ease-out 0.8s both;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Estados específicos del formulario
+.registration-form {
+  &.form-submitting {
+    pointer-events: none;
+    opacity: 0.8;
+  }
+  
+  // Mejorar la accesibilidad del focus
+  &:focus-within {
+    box-shadow: var(--shadow-lg), 0 0 0 3px rgba(102, 0, 51, 0.1);
+  }
+}
+
+// Mejoras para usuarios con discapacidades visuales
+@media (prefers-contrast: high) {
+  .registration-form {
+    border: 3px solid var(--color-text-base);
+  }
+  
+  .form-header .form-title {
+    text-shadow: none;
+    background: rgba(0, 0, 0, 0.7);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+  }
+  
+  .link-primary {
+    text-decoration: underline !important;
+  }
+}
+
+// Adaptaciones para dispositivos táctiles
+@media (pointer: coarse) {
+  .form-actions app-button {
+    margin-bottom: var(--spacing-lg); // Más espacio entre botones en móvil
+  }
+  
+  .link-primary {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    margin: var(--spacing-xs);
+    display: inline-block;
+  }
+}
+
+// Modo oscuro (para futuras implementaciones)
+@media (prefers-color-scheme: dark) {
+  .basic-info-container {
+    background: linear-gradient(135deg, #4a0028 0%, #3d4a8c 100%);
+  }
+}

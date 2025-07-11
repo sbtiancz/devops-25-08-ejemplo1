@@ -2,11 +2,23 @@
 import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { 
+  LucideAngularModule, 
+  User, 
+  Mail, 
+  Phone, 
+  Calendar, 
+  CreditCard, 
+  Lock, 
+  Eye, 
+  EyeOff, 
+  AlertCircle 
+} from 'lucide-angular';
 
 @Component({
   selector: 'app-input',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LucideAngularModule],
   templateUrl: './input.html',
   styleUrl: './input.scss',
   providers: [
@@ -38,6 +50,17 @@ export class InputComponent implements ControlValueAccessor {
   
   value: string = '';
   isFocused: boolean = false;
+  
+  // Registrar iconos de Lucide
+  readonly User = User;
+  readonly Mail = Mail;
+  readonly Phone = Phone;
+  readonly Calendar = Calendar;
+  readonly CreditCard = CreditCard;
+  readonly Lock = Lock;
+  readonly Eye = Eye;
+  readonly EyeOff = EyeOff;
+  readonly AlertCircle = AlertCircle;
   
   // ControlValueAccessor implementation
   onChange = (value: string) => {};
@@ -75,6 +98,31 @@ export class InputComponent implements ControlValueAccessor {
     this.isFocused = false;
     this.onTouched();
     this.blur.emit();
+  }
+  
+  // Generar ID único para el campo
+  getFieldId(): string {
+    return 'input-' + (this.ariaLabel || this.label).replace(/\s+/g, '-').toLowerCase();
+  }
+  
+  // Generar ID para el hint
+  getHintId(): string {
+    return 'hint-' + (this.ariaLabel || this.label).replace(/\s+/g, '-').toLowerCase();
+  }
+  
+  // Generar ID para el error
+  getErrorId(): string {
+    return 'error-' + (this.ariaLabel || this.label).replace(/\s+/g, '-').toLowerCase();
+  }
+  
+  // Generar aria-describedby
+  getAriaDescribedBy(): string {
+    if (this.error) {
+      return this.getErrorId();
+    } else if (this.hint) {
+      return this.getHintId();
+    }
+    return '';
   }
   
   // Clases CSS dinámicas

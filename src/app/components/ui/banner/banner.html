@@ -1,1 +1,51 @@
-<p>banner works!</p>
+<!-- Componente Banner - UI Kit Bohío -->
+<div 
+  *ngIf="visible" 
+  [class]="bannerClasses"
+  role="alert"
+  [attr.aria-live]="type === 'error' ? 'assertive' : 'polite'"
+>
+  <div class="banner__content">
+    <!-- Ícono del banner -->
+    <div class="banner__icon" [attr.aria-hidden]="true">
+      <ng-container [ngSwitch]="type">
+        <span *ngSwitchCase="'success'" class="icon-text">✅</span>
+        <span *ngSwitchCase="'error'" class="icon-text">❌</span>
+        <span *ngSwitchCase="'warning'" class="icon-text">⚠️</span>
+        <span *ngSwitchCase="'info'" class="icon-text">ℹ️</span>
+        <span *ngSwitchDefault class="icon-text">{{ defaultIcon }}</span>
+      </ng-container>
+    </div>
+    
+    <!-- Contenido del banner -->
+    <div class="banner__text">
+      <h4 *ngIf="title" class="banner__title">{{ title }}</h4>
+      <p *ngIf="message" class="banner__message">{{ message }}</p>
+      <ng-content></ng-content>
+    </div>
+    
+    <!-- Acciones del banner -->
+    <div *ngIf="actions && actions.length > 0" class="banner__actions">
+      <button
+        *ngFor="let action of actions; index as i"
+        type="button"
+        class="banner__action-button"
+        (click)="onActionClick(i)"
+        [attr.aria-label]="action.text"
+      >
+        {{ action.text }}
+      </button>
+    </div>
+    
+    <!-- Botón de cerrar -->
+    <button
+      *ngIf="dismissible"
+      type="button"
+      class="banner__close"
+      (click)="onDismiss()"
+      aria-label="Cerrar notificación"
+    >
+      <span class="close-icon" aria-hidden="true">✕</span>
+    </button>
+  </div>
+</div>

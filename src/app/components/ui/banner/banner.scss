@@ -1,0 +1,268 @@
+// Estilos para el componente Banner - UI Kit Bohío
+.banner {
+  display: flex;
+  align-items: flex-start;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  border-left: 4px solid;
+  font-family: inherit;
+  transition: var(--transition-normal);
+  margin-bottom: var(--spacing-md);
+  
+  // Variantes de tipo
+  &--success {
+    background: rgba(16, 185, 129, 0.1);
+    border-left-color: var(--color-success);
+    color: var(--color-success);
+    
+    .banner__title {
+      color: var(--color-success);
+    }
+    
+    .banner__message {
+      color: var(--color-text-base);
+    }
+  }
+  
+  &--error {
+    background: rgba(239, 68, 68, 0.1);
+    border-left-color: var(--color-error);
+    color: var(--color-error);
+    
+    .banner__title {
+      color: var(--color-error);
+    }
+    
+    .banner__message {
+      color: var(--color-text-base);
+    }
+  }
+  
+  &--warning {
+    background: rgba(245, 158, 11, 0.1);
+    border-left-color: var(--color-warning);
+    color: var(--color-warning);
+    
+    .banner__title {
+      color: var(--color-warning);
+    }
+    
+    .banner__message {
+      color: var(--color-text-base);
+    }
+  }
+  
+  &--info {
+    background: rgba(0, 144, 224, 0.1);
+    border-left-color: var(--color-info);
+    color: var(--color-info);
+    
+    .banner__title {
+      color: var(--color-info);
+    }
+    
+    .banner__message {
+      color: var(--color-text-base);
+    }
+  }
+  
+  // Estados de visibilidad
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  &--hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+  }
+}
+
+.banner__content {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  gap: var(--spacing-md);
+}
+
+.banner__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px; // Alineación óptica con el texto
+  
+  .icon-text {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+}
+
+.banner__text {
+  flex: 1;
+  min-width: 0; // Permitir que el texto se contraiga
+  
+  .banner__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 var(--spacing-xs) 0;
+    line-height: 1.4;
+  }
+  
+  .banner__message {
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.5;
+    color: var(--color-text-base);
+  }
+}
+
+.banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-xs);
+  
+  .banner__action-button {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid currentColor;
+    border-radius: var(--border-radius-sm);
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    min-height: 32px;
+    
+    &:hover {
+      background: currentColor;
+      color: white;
+    }
+    
+    &:focus-visible {
+      outline: 2px solid var(--color-azul-cielo);
+      outline-offset: 2px;
+    }
+    
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+.banner__close {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-light);
+  cursor: pointer;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition-normal);
+  margin-left: var(--spacing-sm);
+  
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: var(--color-text-base);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--color-azul-cielo);
+    outline-offset: 2px;
+  }
+  
+  .close-icon {
+    font-size: 0.875rem;
+    font-weight: bold;
+    line-height: 1;
+  }
+}
+
+// Adaptaciones responsive
+@media (max-width: 767px) {
+  .banner {
+    padding: var(--spacing-sm) var(--spacing-md);
+    
+    .banner__content {
+      gap: var(--spacing-sm);
+    }
+    
+    .banner__actions {
+      flex-direction: column;
+      width: 100%;
+      
+      .banner__action-button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+// Accesibilidad - Alto contraste
+@media (prefers-contrast: high) {
+  .banner {
+    border-width: 3px;
+    
+    &--success {
+      background: rgba(16, 185, 129, 0.2);
+    }
+    
+    &--error {
+      background: rgba(239, 68, 68, 0.2);
+    }
+    
+    &--warning {
+      background: rgba(245, 158, 11, 0.2);
+    }
+    
+    &--info {
+      background: rgba(0, 144, 224, 0.2);
+    }
+  }
+  
+  .banner__action-button {
+    border-width: 2px;
+  }
+}
+
+// Reducir animaciones
+@media (prefers-reduced-motion: reduce) {
+  .banner {
+    transition: none;
+  }
+  
+  .banner__action-button,
+  .banner__close {
+    transition: none;
+    
+    &:active {
+      transform: none;
+    }
+  }
+}
+
+// Estados de entrada y salida
+.banner {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

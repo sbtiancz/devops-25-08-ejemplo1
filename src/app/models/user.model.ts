@@ -15,10 +15,10 @@ export interface User {
 // Modelo para el formulario de registro
 export interface RegistrationForm {
   fullName: string;
-  documentId: string;
-  birthDate: string;
-  email: string;
   phone: string;
+  email: string;
+  documentId?: string;
+  birthDate?: string;
   currentStep: number;
   assistedMode: boolean;
 }

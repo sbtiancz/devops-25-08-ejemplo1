@@ -1,1 +1,82 @@
-<p>input works!</p>
+<!-- Componente Input - UI Kit Bohío -->
+<div [class]="'input-wrapper ' + (fullWidth ? 'input-wrapper--full-width' : '')">
+  <!-- Label flotante -->
+  <label 
+    *ngIf="label" 
+    [for]="getFieldId()"
+    [class]="'input-label ' + (value || isFocused ? 'input-label--floating' : '')"
+  >
+    {{ label }}
+    <span *ngIf="required" class="input-required" aria-label="requerido">*</span>
+  </label>
+  
+  <!-- Container del input con ícono -->
+  <div [class]="'input-container ' + inputClasses">
+    <!-- Ícono izquierdo -->
+    <span *ngIf="icon && iconPosition === 'left'" class="input-icon input-icon--left" [attr.aria-hidden]="true">
+      <ng-container [ngSwitch]="icon">
+        <span *ngSwitchCase="'user'" class="icon-text">👤</span>
+        <span *ngSwitchCase="'mail'" class="icon-text">📧</span>
+        <span *ngSwitchCase="'phone'" class="icon-text">📱</span>
+        <span *ngSwitchCase="'calendar'" class="icon-text">📅</span>
+        <span *ngSwitchCase="'credit-card'" class="icon-text">💳</span>
+        <span *ngSwitchCase="'lock'" class="icon-text">🔒</span>
+        <span *ngSwitchCase="'eye'" class="icon-text">👁️</span>
+        <span *ngSwitchCase="'eye-off'" class="icon-text">🙈</span>
+        <span *ngSwitchDefault class="icon-text">{{ icon }}</span>
+      </ng-container>
+    </span>
+    
+    <!-- Input field -->
+    <input
+      [id]="getFieldId()"
+      [type]="type"
+      [value]="value"
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [required]="required"
+      [attr.aria-label]="ariaLabel || label"
+      [attr.aria-describedby]="getAriaDescribedBy()"
+      [attr.aria-invalid]="error ? 'true' : null"
+      class="input-field"
+      (input)="onInputChange($event)"
+      (focus)="onFocus()"
+      (blur)="onBlur()"
+    />
+    
+    <!-- Ícono derecho -->
+    <span *ngIf="icon && iconPosition === 'right'" class="input-icon input-icon--right" [attr.aria-hidden]="true">
+      <ng-container [ngSwitch]="icon">
+        <span *ngSwitchCase="'user'" class="icon-text">👤</span>
+        <span *ngSwitchCase="'mail'" class="icon-text">📧</span>
+        <span *ngSwitchCase="'phone'" class="icon-text">📱</span>
+        <span *ngSwitchCase="'calendar'" class="icon-text">📅</span>
+        <span *ngSwitchCase="'credit-card'" class="icon-text">💳</span>
+        <span *ngSwitchCase="'lock'" class="icon-text">🔒</span>
+        <span *ngSwitchCase="'eye'" class="icon-text">👁️</span>
+        <span *ngSwitchCase="'eye-off'" class="icon-text">🙈</span>
+        <span *ngSwitchDefault class="icon-text">{{ icon }}</span>
+      </ng-container>
+    </span>
+  </div>
+  
+  <!-- Texto de ayuda -->
+  <p 
+    *ngIf="hint && !error" 
+    [id]="getHintId()"
+    class="input-hint"
+  >
+    {{ hint }}
+  </p>
+  
+  <!-- Mensaje de error -->
+  <p 
+    *ngIf="error" 
+    [id]="getErrorId()"
+    class="input-error"
+    role="alert"
+  >
+    <span class="error-icon" aria-hidden="true">⚠️</span>
+    {{ error }}
+  </p>
+</div>

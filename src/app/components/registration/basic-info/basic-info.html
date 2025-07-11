@@ -1,1 +1,131 @@
-<p>basic-info works!</p>
+<!-- Formulario de Datos Básicos - Historia de Usuario 1 -->
+<div class="basic-info-container">
+  <div class="container-sm">
+    <!-- Header del formulario -->
+    <header class="form-header">
+      <h1 class="form-title">Crear mi cuenta</h1>
+      <p class="form-description">
+        Ingresa tus datos personales para comenzar. Solo te tomará unos minutos.
+      </p>
+    </header>
+
+    <!-- Formulario -->
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="registration-form" novalidate>
+      
+      <!-- Campo: Nombre Completo -->
+      <app-input
+        formControlName="fullName"
+        type="text"
+        label="Nombre completo"
+        placeholder="Ej: María Esperanza Rodríguez"
+        icon="user"
+        iconPosition="left"
+        [required]="true"
+        [error]="getFieldError('fullName')"
+        hint="Ingresa tu nombre tal como aparece en tu documento de identidad"
+        size="large"
+        [fullWidth]="true"
+        ariaLabel="Nombre completo requerido"
+      ></app-input>
+
+      <!-- Campo: Número de Celular -->
+      <app-input
+        formControlName="phone"
+        type="tel"
+        label="Número de celular"
+        placeholder="Ej: +1-809-555-0123"
+        icon="phone"
+        iconPosition="left"
+        [required]="true"
+        [error]="getFieldError('phone')"
+        hint="Incluye el código de país. Ejemplo: +1-809-123-4567"
+        size="large"
+        [fullWidth]="true"
+        ariaLabel="Número de celular requerido"
+      ></app-input>
+
+      <!-- Campo: Correo Electrónico -->
+      <app-input
+        formControlName="email"
+        type="email"
+        label="Correo electrónico"
+        placeholder="Ej: maria.esperanza@email.com"
+        icon="mail"
+        iconPosition="left"
+        [required]="true"
+        [error]="getFieldError('email')"
+        hint="Usaremos este correo para enviarte información importante"
+        size="large"
+        [fullWidth]="true"
+        ariaLabel="Correo electrónico requerido"
+      ></app-input>
+
+      <!-- Banner de ayuda para usuarios con baja alfabetización digital -->
+      <app-banner
+        *ngIf="showHelpBanner"
+        type="info"
+        title="¿Necesitas ayuda?"
+        message="Si tienes dificultades para completar este formulario, puedes activar el modo asistido."
+        [dismissible]="true"
+        [actions]="helpBannerActions"
+        (dismiss)="dismissHelpBanner()"
+      ></app-banner>
+
+      <!-- Botón para rellenar datos dummy (solo en desarrollo) -->
+      <div class="development-tools" *ngIf="isDevelopment">
+        <app-button
+          type="button"
+          variant="ghost"
+          size="small"
+          (click)="fillDummyData()"
+          ariaLabel="Rellenar con datos de prueba"
+        >
+          Rellenar datos de prueba
+        </app-button>
+      </div>
+
+      <!-- Acciones del formulario -->
+      <div class="form-actions">
+        <app-button
+          type="submit"
+          variant="primary"
+          size="large"
+          [fullWidth]="true"
+          [disabled]="registrationForm.invalid || isSubmitting"
+          [loading]="isSubmitting"
+          ariaLabel="Continuar al siguiente paso"
+        >
+          <span *ngIf="!isSubmitting">Continuar</span>
+          <span *ngIf="isSubmitting">Procesando...</span>
+        </app-button>
+
+        <!-- Enlace para regresar -->
+        <app-button
+          type="button"
+          variant="ghost"
+          size="medium"
+          [fullWidth]="true"
+          (click)="goBack()"
+          ariaLabel="Regresar a la página anterior"
+        >
+          Regresar
+        </app-button>
+      </div>
+
+      <!-- Información adicional -->
+      <div class="form-footer">
+        <p class="privacy-notice">
+          Al continuar, aceptas que tus datos serán procesados de forma segura según nuestra política de privacidad.
+        </p>
+        
+        <!-- Enlace al modo asistido -->
+        <p class="assisted-mode-link">
+          ¿Tienes dificultades con este formulario? 
+          <a routerLink="/registro/modo-asistido" class="link-primary">
+            Activa el modo asistido
+          </a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
