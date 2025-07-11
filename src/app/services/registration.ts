@@ -94,8 +94,8 @@ export class RegistrationService {
         const user: User = {
           ...DUMMY_USER_DATA,
           fullName: registrationData.fullName,
-          documentId: registrationData.documentId,
-          birthDate: registrationData.birthDate,
+          documentId: registrationData.documentId || '',
+          birthDate: registrationData.birthDate || '',
           email: registrationData.email,
           phone: registrationData.phone,
           emailVerified: this.emailVerifiedSubject.value,

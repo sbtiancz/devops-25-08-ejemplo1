@@ -1,12 +1,11 @@
 // Componente principal de registro - Bohío
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { StepIndicatorComponent } from '../../components/ui/step-indicator/step-indicator';
 
 @Component({
   selector: 'app-registration',
   standalone: true,
-  imports: [RouterOutlet, StepIndicatorComponent],
+  imports: [RouterOutlet],
   templateUrl: './registration.html',
   styleUrl: './registration.scss'
 })

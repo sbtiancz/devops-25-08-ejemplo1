@@ -3,16 +3,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ButtonComponent } from '../../ui/button/button';
-import { InputComponent } from '../../ui/input/input';
-import { BannerComponent } from '../../ui/banner/banner';
 import { RegistrationService } from '../../../services/registration';
 import { DUMMY_VERIFICATION_CODES } from '../../../models/user.model';
 
 @Component({
   selector: 'app-phone-verification',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ButtonComponent, InputComponent, BannerComponent],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './phone-verification.html',
   styleUrl: './phone-verification.scss'
 })

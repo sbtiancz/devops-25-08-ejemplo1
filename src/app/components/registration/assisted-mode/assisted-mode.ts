@@ -2,14 +2,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { ButtonComponent } from '../../ui/button/button';
-import { BannerComponent } from '../../ui/banner/banner';
 import { RegistrationService } from '../../../services/registration';
 
 @Component({
   selector: 'app-assisted-mode',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, BannerComponent],
+  imports: [CommonModule],
   templateUrl: './assisted-mode.html',
   styleUrl: './assisted-mode.scss'
 })
