@@ -1,0 +1,64 @@
+---
+alwaysApply: true
+---
+
+# Lineamientos técnicos para el desarrollo
+
+## Principios de calidad del código
+
+- Seguir principios **SOLID** en toda la base de código.
+- Evitar código duplicado, redundante o sin uso.
+- Toda función y clase pública debe estar documentada con comentarios `//` claros y útiles.
+- Evitar comentarios innecesarios o repetitivos.
+- Preferir el uso de operadores ternarios para asignaciones condicionales simples.
+
+## Buenas prácticas Angular
+
+- Mantener la **estructura estándar de proyecto Angular** (`src/app`, `shared/`, `core/`, `features/`).
+- Separar claramente responsabilidades: **Componentes, Servicios, Módulos**.
+- Utilizar **componentes pequeños y reutilizables**.
+- Encapsular estilos en cada componente (`ViewEncapsulation`).
+- Usar **módulos Lazy Loading** para mejorar rendimiento y carga progresiva.
+
+## Accesibilidad
+
+- Cumplir con los estándares **WCAG 2.1**.
+- Implementar accesibilidad por teclado, lector de pantalla, contraste y etiquetas ARIA.
+
+## Estilo de código
+
+- Indentación con **espacios (4)**.
+- Máximo de **120 caracteres por línea**.
+- Dejar **una línea en blanco entre métodos**.
+- **Comentar solo funciones y clases públicas** usando `//`.
+- Prefiere `const` y `let`, evita `var`.
+
+## Arquitectura y lógica
+
+- Prefiere **inyección de dependencias por constructor**.
+- Usar **RxJS** y **Observables** para el manejo asíncrono.
+- Optimizar suscripciones con `unsubscribe` o `async pipe`.
+- Evitar lógica compleja en plantillas: trasladar a métodos o `pipes` personalizados.
+- Aplicar `directivas` y `pipes` para lógica repetitiva o transformación de datos.
+
+## Testing
+
+- Implementar pruebas unitarias con **Jasmine + Karma**.
+- Realizar pruebas tanto en **componentes** como en **servicios**.
+- Utilizar `TestBed` para pruebas de integración Angular.
+
+## Seguridad
+
+- Seguir principios de seguridad **OWASP Top 10**:
+  - Validación y sanitización de entradas
+  - Prevención de XSS/CSRF
+  - Uso de HTTPS
+  - Control de accesos adecuados
+  - Manejo seguro de errores
+
+## Versionamiento
+
+- Utilizar **Git** como sistema de control de versiones.
+- Repositorio remoto en **GitHub**.
+- Seguir estrategia de ramas basada en **Git Flow**.
+- Realizar commits descriptivos y frecuentes.

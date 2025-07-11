@@ -1,0 +1,212 @@
+// Estilos para el componente Button - UI Kit Bohío
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  
+  &:focus-visible {
+    outline: 2px solid var(--color-azul-cielo);
+    outline-offset: 2px;
+  }
+  
+  // Variantes de color
+  &--primary {
+    background: var(--color-borgona);
+    color: var(--color-text-white);
+    
+    &:hover:not(:disabled) {
+      background: var(--color-malva);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+  }
+  
+  &--secondary {
+    background: var(--color-morado);
+    color: var(--color-text-white);
+    
+    &:hover:not(:disabled) {
+      background: var(--color-azul-cielo);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+  }
+  
+  &--accent {
+    background: var(--color-azul-cielo);
+    color: var(--color-text-white);
+    
+    &:hover:not(:disabled) {
+      background: var(--color-azul-marino);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+  }
+  
+  &--ghost {
+    background: transparent;
+    color: var(--color-borgona);
+    border-color: var(--color-borgona);
+    
+    &:hover:not(:disabled) {
+      background: var(--color-borgona);
+      color: var(--color-text-white);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+  }
+  
+  // Tamaños
+  &--small {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.875rem;
+    min-height: 36px;
+    
+    .btn__icon {
+      font-size: 1rem;
+    }
+  }
+  
+  &--medium {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1rem;
+    min-height: 44px;
+    
+    .btn__icon {
+      font-size: 1.125rem;
+    }
+  }
+  
+  &--large {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    font-size: 1.125rem;
+    min-height: 56px;
+    
+    .btn__icon {
+      font-size: 1.25rem;
+    }
+  }
+  
+  // Modificadores
+  &--full-width {
+    width: 100%;
+  }
+  
+  &--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  &--loading {
+    cursor: wait;
+    
+    .btn__content {
+      opacity: 0.7;
+    }
+  }
+  
+  // Elementos internos
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &--left {
+      margin-right: var(--spacing-sm);
+    }
+    
+    &--right {
+      margin-left: var(--spacing-sm);
+    }
+  }
+  
+  &__loading {
+    position: absolute;
+    right: var(--spacing-md);
+    animation: spin 1s linear infinite;
+  }
+  
+  // Iconos con posición
+  &--icon-left {
+    .btn__icon--left {
+      margin-right: var(--spacing-sm);
+    }
+  }
+  
+  &--icon-right {
+    .btn__icon--right {
+      margin-left: var(--spacing-sm);
+    }
+  }
+}
+
+// Animación de carga
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Accesibilidad - Modo de alto contraste
+@media (prefers-contrast: high) {
+  .btn {
+    border-width: 3px;
+    
+    &--primary,
+    &--secondary,
+    &--accent {
+      border-color: currentColor;
+    }
+  }
+}
+
+// Reducir animaciones si está configurado
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+    
+    &:hover:not(:disabled) {
+      transform: none;
+    }
+    
+    &__loading {
+      animation: none;
+    }
+  }
+}

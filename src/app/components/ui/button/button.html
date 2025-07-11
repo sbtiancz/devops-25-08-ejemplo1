@@ -1,0 +1,28 @@
+<!-- Componente Button - UI Kit Bohío -->
+<button 
+  [type]="type"
+  [class]="buttonClasses"
+  [disabled]="disabled || loading"
+  [attr.aria-label]="ariaLabel || null"
+  (click)="onClick()"
+>
+  <!-- Icono izquierdo -->
+  <span *ngIf="icon && iconPosition === 'left'" class="btn__icon btn__icon--left" [attr.aria-hidden]="true">
+    {{ icon }}
+  </span>
+  
+  <!-- Contenido del botón -->
+  <span class="btn__content">
+    <ng-content></ng-content>
+  </span>
+  
+  <!-- Icono derecho -->
+  <span *ngIf="icon && iconPosition === 'right'" class="btn__icon btn__icon--right" [attr.aria-hidden]="true">
+    {{ icon }}
+  </span>
+  
+  <!-- Indicador de carga -->
+  <span *ngIf="loading" class="btn__loading" [attr.aria-hidden]="true">
+    ⏳
+  </span>
+</button>

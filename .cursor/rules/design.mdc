@@ -1,0 +1,30 @@
+---
+alwaysApply: false
+---
+
+# Principios de diseño
+
+- **Accesibilidad:** Navegación compatible con lectores de pantalla, textos claros, modo simplificado, contraste adecuado.
+- **Simplicidad:** Interfaces limpias, flujos guiados, mensajes con iconografía y ayudas contextuales.
+- **Modularidad:** Servicios financieros personalizables según el perfil del usuario.
+- **Transparencia:** Visualización clara de tasas, comisiones y beneficios.
+- **Confianza:** Experiencia empática, cálida y segura, sin discriminación.
+
+---
+
+# Tecnologías y lineamientos visuales
+
+- **Framework principal:** Angular
+- **Lenguajes preferidos:** JavaScript, HTML, SCSS
+- **Diseño basado en sistema de componentes reutilizables** (botones, banners, inputs, tarjetas, pestañas).
+- **Iconografía:** Lucide Icons v1
+- **Ilustraciones:** Flat Line System by note.inc
+- **Tipografía:** Manrope
+- **Colores principales:**
+  - Borgoña `#660033`
+  - Malva `#733275`
+  - Morado `#5661B4`
+  - Azul cielo `#0090E0`
+  - Azul marino `#00BBED`
+  - Aguamarina `#00E1DDAa`
+

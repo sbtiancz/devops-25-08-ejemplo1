@@ -1,0 +1,12 @@
+---
+alwaysApply: false
+---
+
+# Creación de Historias de Usuario
+
+- Para cada nueva historia de usuario:
+  - Construye la descripción en formato Cohn.
+  - Escribe los criterios de aceptación en formato Gherkin.
+  - Para cada una de ellas, necesito que me des un prompt que pueda ser utilizado en una herramienta de diseño de pantallas, como Figma, para que genere el diseño necesario para la HU:
+    - El prompt debe contener todas las descripciones y los datos relevantes de diseño contenidos en el UI Kit, y debería de ser una descripción poderosa y suficiente para que la herramienta de diseño pueda crear su diseño.
+    - Cada uno de los prompts de cada una de las HU deberá ser independiente y conteniendo todas las instrucciones asegurando la capacidad de ser ejecutado.

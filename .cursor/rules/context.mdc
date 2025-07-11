@@ -1,0 +1,82 @@
+# Nombre del proyecto: Bohío
+
+## Descripción general
+
+**Bohío** es una plataforma financiera digital desarrollada para ofrecer servicios bancarios accesibles, inclusivos y transparentes en la República Dominicana. Está diseñada para atender a sectores históricamente excluidos del sistema financiero tradicional, como personas en zonas rurales, migrantes, adultos mayores y trabajadores informales.
+
+Inspirada en la vivienda tradicional taína —el bohío— la aplicación busca convertirse en un hogar financiero confiable para todos los ciudadanos y residentes del país. La plataforma está diseñada con un enfoque social, adaptable a diversas realidades tecnológicas y culturales, con capacidades de marca blanca para ser integrada por otras entidades.
+
+---
+
+## Propósito del sistema
+
+1. **Incluir financieramente** a personas excluidas del sistema tradicional (por razones migratorias, educativas, tecnológicas o económicas).
+2. **Fomentar la educación financiera** con contenido claro, práctico y accesible.
+3. **Empoderar económicamente** a los usuarios con herramientas digitales útiles, adaptadas a cada etapa de la vida.
+4. **Ser una banca sin barreras**, con experiencia accesible para personas con diversidad funcional, baja alfabetización digital o necesidades especiales.
+
+---
+
+## Alcance del proyecto
+
+El alcance actual se centra en:
+
+- **Flujo de creación de cuenta** desde el registro hasta la validación de identidad y confirmación de datos.
+- **Solicitud y configuración de tarjeta de crédito modular**, ajustable a las necesidades de cada persona.
+- **Componentes de educación financiera**, beneficios, soporte y personalización del perfil.
+- **Diseño accesible**, compatible con lectores de pantalla y dispositivos de gama baja.
+- **Sistema adaptable** a múltiples tipos de usuario: asistidos, con poca conectividad, migrantes, trabajadores informales, etc.
+
+---
+
+## Público objetivo
+
+- Personas en zonas rurales o con bajo acceso digital.
+- Migrantes haitianos y venezolanos en proceso de regularización.
+- Adultos mayores con necesidades de asistencia.
+- Personas con discapacidades visuales o funcionales.
+- Trabajadores informales y estudiantes independientes.
+- Usuarios que desconfían de la banca tradicional por comisiones ocultas.
+
+---
+
+## Principios de diseño
+
+- **Accesibilidad:** Navegación compatible con lectores de pantalla, textos claros, modo simplificado, contraste adecuado.
+- **Simplicidad:** Interfaces limpias, flujos guiados, mensajes con iconografía y ayudas contextuales.
+- **Modularidad:** Servicios financieros personalizables según el perfil del usuario.
+- **Transparencia:** Visualización clara de tasas, comisiones y beneficios.
+- **Confianza:** Experiencia empática, cálida y segura, sin discriminación.
+
+---
+
+## Tecnologías y lineamientos visuales
+
+- **Framework principal:** Angular
+- **Lenguajes preferidos:** JavaScript, HTML, SCSS
+- **Diseño basado en sistema de componentes reutilizables** (botones, banners, inputs, tarjetas, pestañas).
+- **Iconografía:** Lucide Icons v1
+- **Ilustraciones:** Flat Line System by note.inc
+- **Tipografía:** Manrope
+- **Colores principales:**
+  - Borgoña `#660033`
+  - Malva `#733275`
+  - Morado `#5661B4`
+  - Azul cielo `#0090E0`
+  - Azul marino `#00BBED`
+  - Aguamarina `#00E1DDAa`
+
+---
+
+## Estado actual
+
+- Prototipo de alta fidelidad en Figma.
+- Flujos clave definidos: creación de cuenta, tarjeta de crédito.
+- Investigación de usuarios validada con arquetipos reales.
+- UI Kit completo disponible con todos los componentes base.
+
+---
+
+### Enlace al prototipo (solo para humanos)
+
+[https://www.figma.com/proto/5vof81FnLQisgvd7qBZIlr/-BancoCastor-_Fase-UI_-29-05-2025](https://www.figma.com/proto/5vof81FnLQisgvd7qBZIlr/-BancoCastor-_Fase-UI_-29-05-2025-?page-id=4360%3A7426&node-id=4365-7329)
