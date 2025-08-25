@@ -1,7 +1,6 @@
 ---
-alwaysApply: false
+alwaysApply: true
 ---
-
 # Principios de diseño
 
 - **Accesibilidad:** Navegación compatible con lectores de pantalla, textos claros, modo simplificado, contraste adecuado.
