@@ -3,6 +3,25 @@ process.env.CHROME_BIN = executablePath();
 
 module.exports = function (config) {
   config.set({
+    basePath: '',
+    frameworks: ['jasmine', '@angular-devkit/build-angular'],
+    plugins: [
+      require('karma-jasmine'),
+      require('karma-chrome-launcher'),       // <- IMPORTANTE
+      require('karma-junit-reporter'),
+      require('karma-coverage'),
+      require('@angular-devkit/build-angular/plugins/karma')
+    ],
+    reporters: ['progress', 'junit', 'coverage'],
+    junitReporter: {
+      outputDir: 'reports/junit',
+      outputFile: 'junit-report.xml',
+      useBrowserName: false
+    },
+    coverageReporter: {
+      dir: 'coverage',
+      reporters: [{ type: 'lcov', subdir: '.' }, { type: 'text-summary' }]
+    },
     browsers: ['ChromeHeadlessCI'],
     customLaunchers: {
       ChromeHeadlessCI: {
@@ -15,8 +34,7 @@ module.exports = function (config) {
         ]
       }
     },
-    reporters: ['progress','junit','coverage'],
-    junitReporter: { outputDir: 'reports/junit', outputFile: 'junit-report.xml', useBrowserName: false },
-    coverageReporter: { dir: 'coverage', reporters: [{ type: 'lcov', subdir: '.' }, { type: 'text-summary' }] }
+    singleRun: true,
+    restartOnFileChange: false
   });
 };
