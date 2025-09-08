@@ -1,11 +1,3 @@
-const { executablePath } = require('puppeteer');
-process.env.CHROME_BIN = executablePath();
-
-// TODO Delete
-console.log('nassao executablePath', executablePath());
-console.log('nassao env', process.env.CHROME_BIN);
-
-
 module.exports = function (config) {
   config.set({
     basePath: '',
